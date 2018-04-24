@@ -11,8 +11,8 @@ import org.junit.After;
 * @since <pre>���� 18, 2018</pre> 
 * @version 1.0 
 */ 
-public class GetChannelTest { 
-
+public class GetChannelTest {
+    private byte i;
 @Before
 public void before() throws Exception { 
 } 
@@ -28,7 +28,8 @@ public void after() throws Exception {
 */ 
 @Test
 public void testChannel() throws Exception {
-    GetChannel.channel();
+    //GetChannel.channel();
+    System.out.println(i);
 } 
 
 
