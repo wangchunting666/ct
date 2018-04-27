@@ -26,7 +26,8 @@ public class JedisOctTest {
     */
     @Test
     public void testConnnectRedis() throws Exception {
-        JedisOct.connnectRedis();
+        JedisOct.connnectRedisSet();
+        //JedisOct.connnectRedisGet();
     }
 
 
