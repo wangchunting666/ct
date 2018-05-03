@@ -1,6 +1,7 @@
 package com.ct.designPattern.bridging;
 
-import org.junit.Test; 
+import com.ct.designPattern.bridging.simle.MyList;
+import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 

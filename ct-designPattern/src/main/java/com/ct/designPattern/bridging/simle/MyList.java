@@ -1,4 +1,4 @@
-package com.ct.designPattern.bridging;
+package com.ct.designPattern.bridging.simle;
 
 import java.util.Arrays;
 import java.util.List;

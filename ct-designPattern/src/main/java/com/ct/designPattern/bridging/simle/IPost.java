@@ -1,4 +1,4 @@
-package com.ct.designPattern.bridging;
+package com.ct.designPattern.bridging.simle;
 
 /**
  * Created by Herdsric-M-003 on 2018/5/2.
