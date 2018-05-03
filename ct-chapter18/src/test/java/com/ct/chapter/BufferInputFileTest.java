@@ -4,10 +4,6 @@ import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 
-import java.io.BufferedReader;
-
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
-
 /** 
 * BufferInputFile Tester. 
 * 

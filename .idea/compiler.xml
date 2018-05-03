@@ -6,12 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ct-arithmetic" />
         <module name="ct-chapter18" />
+        <module name="ct-designPattern" />
+        <module name="ct-redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ct" target="1.8" />
+      <module name="ct-arithmetic" target="1.8" />
       <module name="ct-chapter18" target="1.8" />
+      <module name="ct-designPattern" target="1.8" />
+      <module name="ct-redis" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
