@@ -8,10 +8,7 @@
     <artifactId>ct</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>ct-chapter18</module>
-        <module>ct-redis</module>
-        <module>ct-arithmetic</module>
-        <module>ct-designPattern</module>
+        <module>ct-design</module>
     </modules>
     <packaging>pom</packaging>
 

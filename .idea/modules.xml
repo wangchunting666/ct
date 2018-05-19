@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ct.iml" filepath="$PROJECT_DIR$/ct.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ct-arithmetic/ct-arithmetic.iml" filepath="$PROJECT_DIR$/ct-arithmetic/ct-arithmetic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ct-chapter18/ct-chapter18.iml" filepath="$PROJECT_DIR$/ct-chapter18/ct-chapter18.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ct-designPattern/ct-designPattern.iml" filepath="$PROJECT_DIR$/ct-designPattern/ct-designPattern.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ct-redis/ct-redis.iml" filepath="$PROJECT_DIR$/ct-redis/ct-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-design/ct-design.iml" filepath="$PROJECT_DIR$/ct-design/ct-design.iml" />
     </modules>
   </component>
 </project>
