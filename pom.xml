@@ -10,6 +10,7 @@
     <modules>
         <module>ct-design</module>
         <module>ct-nio</module>
+        <module>ct-io</module>
     </modules>
     <packaging>pom</packaging>
 
