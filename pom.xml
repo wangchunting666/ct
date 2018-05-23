@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>ct-design</module>
+        <module>ct-nio</module>
     </modules>
     <packaging>pom</packaging>
 
