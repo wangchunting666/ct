@@ -4,7 +4,6 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.nio.charset.Charset;
 import java.util.zip.GZIPOutputStream;
 
 /**
