@@ -11,6 +11,7 @@
         <module>ct-design</module>
         <module>ct-nio</module>
         <module>ct-io</module>
+        <module>ct-enum</module>
     </modules>
     <packaging>pom</packaging>
 
