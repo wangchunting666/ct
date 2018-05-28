@@ -16,6 +16,4 @@ class EnumClass {
         }
     }
 }
-enum Shrubbery{
-    GROUND,CRAWLING,HANGING
-}
+
