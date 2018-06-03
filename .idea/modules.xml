@@ -3,7 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ct.iml" filepath="$PROJECT_DIR$/ct.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-annotation/ct-annotation.iml" filepath="$PROJECT_DIR$/ct-annotation/ct-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-design/ct-design.iml" filepath="$PROJECT_DIR$/ct-design/ct-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-enum/ct-enum.iml" filepath="$PROJECT_DIR$/ct-enum/ct-enum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-io/ct-io.iml" filepath="$PROJECT_DIR$/ct-io/ct-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-nio/ct-nio.iml" filepath="$PROJECT_DIR$/ct-nio/ct-nio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-supervene/ct-supervene.iml" filepath="$PROJECT_DIR$/ct-supervene/ct-supervene.iml" />
     </modules>
   </component>
 </project>

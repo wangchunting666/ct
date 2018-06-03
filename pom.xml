@@ -12,6 +12,8 @@
         <module>ct-nio</module>
         <module>ct-io</module>
         <module>ct-enum</module>
+        <module>ct-annotation</module>
+        <module>ct-supervene</module>
     </modules>
     <packaging>pom</packaging>
 

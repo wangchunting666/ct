@@ -2,10 +2,12 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ct-arithmetic" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ct-chapter18" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ct-annotation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ct-design" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ct-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ct-enum" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ct-io" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ct-nio" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ct-supervene" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

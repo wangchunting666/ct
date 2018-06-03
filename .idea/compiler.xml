@@ -6,17 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ct-annotation" />
         <module name="ct-design" />
         <module name="ct-designPattern" />
+        <module name="ct-enum" />
+        <module name="ct-io" />
+        <module name="ct-nio" />
+        <module name="ct-supervene" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ct" target="1.8" />
+      <module name="ct-annotation" target="1.8" />
       <module name="ct-arithmetic" target="1.8" />
       <module name="ct-chapter18" target="1.8" />
       <module name="ct-design" target="1.8" />
       <module name="ct-designPattern" target="1.8" />
+      <module name="ct-enum" target="1.8" />
+      <module name="ct-io" target="1.8" />
+      <module name="ct-nio" target="1.8" />
       <module name="ct-redis" target="1.8" />
+      <module name="ct-supervene" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
