@@ -14,6 +14,9 @@
         <module>ct-enum</module>
         <module>ct-annotation</module>
         <module>ct-supervene</module>
+        <module>ct-innerclass</module>
+        <module>ct-character</module>
+        <module>ct-mybatis-generator</module>
     </modules>
     <packaging>pom</packaging>
 
