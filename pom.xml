@@ -17,6 +17,7 @@
         <module>ct-innerclass</module>
         <module>ct-character</module>
         <module>ct-mybatis-generator</module>
+        <module>ct-mybatis-plus</module>
     </modules>
     <packaging>pom</packaging>
 

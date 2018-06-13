@@ -30,7 +30,7 @@
         -->
 
 
-        <contextid="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple" >
+        <context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple" >
         <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
             一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖
          -->
@@ -124,7 +124,7 @@
             或者只使用Mapper接口+Annotation，所以，如果 javaClientGenerator配置中配置了需要生成XML的话，这个元素就必须配置
         targetPackage/targetProject:同javaModelGenerator
      -->
-        <sqlMapGeneratortargetPackage="com._520it.mybatis.mapper" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="com._520it.mybatis.mapper" targetProject="src/main/resources">
         <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
         <propertyname="enableSubPackages" value="true"/>
         </sqlMapGenerator>
