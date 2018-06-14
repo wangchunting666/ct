@@ -8,9 +8,9 @@
                         connectionURL="jdbc:mysql://localhost:3306/authorities?useUnicode=true"
                         userId="root"
                         password="123456" />
-        <javaModelGenerator targetPackage="com.ct.mybatis.model" targetProject="src/main/java" />
-        <sqlMapGenerator targetPackage="com.ct.mybatis.config" targetProject="src/main/java" />
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ct.mybatis.dao" targetProject="src/main/java" />
+        <javaModelGenerator targetPackage="com.ct.xml.model" targetProject="src/main/java" />
+        <sqlMapGenerator targetPackage="com.ct.xml.config" targetProject="src/main/java" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ct.xml.dao" targetProject="src/main/java" />
         <table tableName="s_auth"/>
     </context>
 </generatorConfiguration>

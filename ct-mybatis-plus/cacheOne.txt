@@ -1,0 +1,27 @@
+缓存机制设计
+1.最底层可以配置的是mysql自带的query cache，
+2.mybatis的一级缓存，默认情况下都处于开启状态，只能使用自带的PerpetualCache，无法配置第三方缓存
+3.mybatis的二级缓存，可以配置开关状态，默认使用自带的PerpetualCache，但功能比较弱，能够配置第三方缓存，
+4.service层的缓存配置，结合spring，可以灵活进行选择
+5.针对实际业务情况，直接缓存部分html页面，直接返回给客户端。
+mybatis一级缓存：
+1.MyBatis 默认开启了一级缓存，一级缓存是在SqlSession 层面进行缓存的。
+  即，同一个SqlSession ，多次调用同一个Mapper和同一个方法的同一个参数，
+  只会进行一次数据库查询，然后把数据缓存到缓冲中，以后直接先从缓存中取出数据，
+  不会直接去查数据库。
+2.但是不同的SqlSession对象，因为不用的SqlSession都是相互隔离的，
+  所以相同的Mapper、参数和方法，他还是会再次发送到SQL到数据库去执行，返回结果。
+
+Spring结合mybatis使用，mybatis失效原因：
+1.mybatis的一级缓存生效的范围是sqlsession，是为了在sqlsession没有关闭时，业务需要重复查询相同数据使用的。
+  一旦sqlsession关闭，则由这个sqlsession缓存的数据将会被清空。
+2.spring对mybatis的sqlsession的使用是由template控制的，sqlsession又被spring当作resource放在当前线程的上下文里（threadlocal).
+
+spring通过mybatis调用数据库的过程如下：
+a,我们需要访问数据
+b,spring检查到了这种需求，于是去申请一个mybatis的sqlsession（资源池），并将申请到的sqlsession与当前线程绑定，放入threadlocal里面
+c,template从threadlocal获取到sqlsession，去执行查询
+d,查询结束，清空threadlocal中与当前线程绑定的sqlsession，释放资源
+e,我们又需要访问数据
+f,返回到步骤b
+同一线程里面两次查询同一数据所使用的sqlsession是不相同的，所以，给人的印象就是结合spring后，mybatis的一级缓存失效了。

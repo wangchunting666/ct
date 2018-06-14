@@ -18,6 +18,8 @@
         <module>ct-character</module>
         <module>ct-mybatis-generator</module>
         <module>ct-mybatis-plus</module>
+        <module>ct-mybatis-boot</module>
+        <module>ct-ehcache</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,6 +29,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <mybatis.version>1.3.0</mybatis.version>
+        <mybatisplus.version>1.0.5</mybatisplus.version>
+        <version-alibaba>1.0.24</version-alibaba>
+        <maven.version>3.7.0</maven.version>
+        <plus.version>2.3</plus.version>
+        <engine.version>2.0</engine.version>
     </properties>
 
     <build>
@@ -34,7 +42,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>${maven.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
