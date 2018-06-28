@@ -20,6 +20,10 @@
         <module>ct-mybatis-plus</module>
         <module>ct-mybatis-boot</module>
         <module>ct-ehcache</module>
+        <module>ct-mybatis-web</module>
+        <module>ct-spring-rabbit</module>
+        <module>ct-spring-config</module>
+        <module>ct-spring-client</module>
     </modules>
     <packaging>pom</packaging>
 

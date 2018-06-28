@@ -47,7 +47,15 @@ public class MpGenerator {
         //strategy.setFieldPrefix(new String[] { "t_"});
         //strategy.setTablePrefix(new String[] { "sys_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "sys_user"});
+        strategy.setInclude(new String[] {
+                "sys_dept",
+                "sys_log",
+                "sys_menu",
+                "sys_role",
+                "sys_role_menu",
+                "sys_setting",
+                "sys_user_role"
+        });
         mpg.setStrategy(strategy);
 
         // 包配置
