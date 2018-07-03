@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<bean id="myTestBean" class="com.ct.spring.base.MyTestBean"/>
+	<bean id="beanFactory" class="com.ct.spring.bean.CarFactoryBean">
+		<property name="carInfo" value="1,奔驰,0.5"/>
+	</bean>
+	<!--
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.Date" value="com.ct.spring.editor.DatePropertyEditor"/>
+			</map>
+		</property>
+	</bean>
+	-->
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="propertyEditorRegistrars">
+			<list>
+				<bean class="com.ct.spring.editor.DatePropertyEditorRegistrar"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="user" class="com.ct.spring.editor.User">
+		<property name="createTime" value="2018-04-06"/>
+	</bean>
+</beans>

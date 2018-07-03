@@ -7,11 +7,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ct-annotation" />
+        <module name="ct-character" />
         <module name="ct-design" />
         <module name="ct-designPattern" />
+        <module name="ct-ehcache" />
         <module name="ct-enum" />
+        <module name="ct-generator" />
+        <module name="ct-innerclass" />
         <module name="ct-io" />
+        <module name="ct-mybatis-boot" />
+        <module name="ct-mybatis-generator" />
+        <module name="ct-mybatis-plus" />
+        <module name="ct-mybatis-web" />
         <module name="ct-nio" />
+        <module name="ct-spring-base" />
+        <module name="ct-spring-client" />
+        <module name="ct-spring-config" />
+        <module name="ct-spring-rabbit" />
         <module name="ct-supervene" />
       </profile>
     </annotationProcessing>
@@ -20,12 +32,24 @@
       <module name="ct-annotation" target="1.8" />
       <module name="ct-arithmetic" target="1.8" />
       <module name="ct-chapter18" target="1.8" />
+      <module name="ct-character" target="1.8" />
       <module name="ct-design" target="1.8" />
       <module name="ct-designPattern" target="1.8" />
+      <module name="ct-ehcache" target="1.8" />
       <module name="ct-enum" target="1.8" />
+      <module name="ct-generator" target="1.8" />
+      <module name="ct-innerclass" target="1.8" />
       <module name="ct-io" target="1.8" />
+      <module name="ct-mybatis-boot" target="1.8" />
+      <module name="ct-mybatis-generator" target="1.8" />
+      <module name="ct-mybatis-plus" target="1.8" />
+      <module name="ct-mybatis-web" target="1.8" />
       <module name="ct-nio" target="1.8" />
       <module name="ct-redis" target="1.8" />
+      <module name="ct-spring-base" target="1.8" />
+      <module name="ct-spring-client" target="1.8" />
+      <module name="ct-spring-config" target="1.8" />
+      <module name="ct-spring-rabbit" target="1.8" />
       <module name="ct-supervene" target="1.8" />
     </bytecodeTargetLevel>
   </component>

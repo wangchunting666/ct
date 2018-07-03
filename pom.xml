@@ -24,6 +24,7 @@
         <module>ct-spring-rabbit</module>
         <module>ct-spring-config</module>
         <module>ct-spring-client</module>
+        <module>ct-spring-base</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -4,10 +4,22 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ct.iml" filepath="$PROJECT_DIR$/ct.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-annotation/ct-annotation.iml" filepath="$PROJECT_DIR$/ct-annotation/ct-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-character/ct-character.iml" filepath="$PROJECT_DIR$/ct-character/ct-character.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-design/ct-design.iml" filepath="$PROJECT_DIR$/ct-design/ct-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-ehcache/ct-ehcache.iml" filepath="$PROJECT_DIR$/ct-ehcache/ct-ehcache.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-enum/ct-enum.iml" filepath="$PROJECT_DIR$/ct-enum/ct-enum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-generator/ct-generator.iml" filepath="$PROJECT_DIR$/ct-generator/ct-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-innerclass/ct-innerclass.iml" filepath="$PROJECT_DIR$/ct-innerclass/ct-innerclass.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-io/ct-io.iml" filepath="$PROJECT_DIR$/ct-io/ct-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-mybatis-boot/ct-mybatis-boot.iml" filepath="$PROJECT_DIR$/ct-mybatis-boot/ct-mybatis-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-mybatis-generator/ct-mybatis-generator.iml" filepath="$PROJECT_DIR$/ct-mybatis-generator/ct-mybatis-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-mybatis-plus/ct-mybatis-plus.iml" filepath="$PROJECT_DIR$/ct-mybatis-plus/ct-mybatis-plus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-mybatis-web/ct-mybatis-web.iml" filepath="$PROJECT_DIR$/ct-mybatis-web/ct-mybatis-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-nio/ct-nio.iml" filepath="$PROJECT_DIR$/ct-nio/ct-nio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-spring-base/ct-spring-base.iml" filepath="$PROJECT_DIR$/ct-spring-base/ct-spring-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-spring-client/ct-spring-client.iml" filepath="$PROJECT_DIR$/ct-spring-client/ct-spring-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-spring-config/ct-spring-config.iml" filepath="$PROJECT_DIR$/ct-spring-config/ct-spring-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-spring-rabbit/ct-spring-rabbit.iml" filepath="$PROJECT_DIR$/ct-spring-rabbit/ct-spring-rabbit.iml" />
       <module fileurl="file://$PROJECT_DIR$/ct-supervene/ct-supervene.iml" filepath="$PROJECT_DIR$/ct-supervene/ct-supervene.iml" />
     </modules>
   </component>
