@@ -6,14 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ct-declare" />
+        <module name="ct-spring-source" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ct" target="1.8" />
-      <module name="ct-config-client" target="1.8" />
-      <module name="ct-config-server" target="1.8" />
       <module name="ct-declare" target="1.8" />
+      <module name="ct-spring-source" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ct.iml" filepath="$PROJECT_DIR$/ct.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ct-declare/ct-declare.iml" filepath="$PROJECT_DIR$/ct-declare/ct-declare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ct-spring-source/ct-spring-source.iml" filepath="$PROJECT_DIR$/ct-spring-source/ct-spring-source.iml" />
     </modules>
   </component>
 </project>
