@@ -8,7 +8,6 @@
     <artifactId>ct</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>ct-declare</module>
         <module>ct-spring-source</module>
     </modules>
     <packaging>pom</packaging>
