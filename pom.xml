@@ -14,10 +14,8 @@
         <module>ct-enum</module>
         <module>ct-annotation</module>
         <module>ct-supervene</module>
-        <module>ct-innerclass</module>
         <module>ct-character</module>
         <module>ct-mybatis-generator</module>
-        <module>ct-mybatis-plus</module>
         <module>ct-mybatis-boot</module>
         <module>ct-ehcache</module>
         <module>ct-mybatis-web</module>
