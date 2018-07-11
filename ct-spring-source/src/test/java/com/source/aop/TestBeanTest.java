@@ -1,11 +1,14 @@
 package com.source.aop;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After;
-import org.springframework.aop.config.AopNamespaceHandler;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.source.dao.UserDao;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.ArrayList;
 
 /** 
 * TestBean Tester. 
@@ -13,28 +16,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 * @author <Authors name> 
 * @since <pre>���� 3, 2018</pre> 
 * @version 1.0 
-*/ 
-public class TestBeanTest { 
-    private ApplicationContext context;
-    @Before
-    public void before() throws Exception {
-        context = new ClassPathXmlApplicationContext("applicationContext-test.xml");
-    }
-
-    @After
-    public void after() throws Exception {}
-
-    /**
-    *
-    * Method: test()
-    *
-    */
+*/
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {
+        "classpath:spring/applicationContext-dao.xml"
+})
+public class TestBeanTest {
+    @Autowired private UserDao userDao;
     @Test
-    public void testTest() throws Exception {
-        TestBean testBean = context.getBean("test",TestBean.class);
-        testBean.test();
-//        AopNamespaceHandler;
+    public void testSelectAll() throws Exception{
+        System.out.println(userDao.selectAll(null));
+//        DataSourceTransactionManager
     }
-
-
 } 

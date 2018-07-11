@@ -9,6 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>ct-spring-source</module>
+        <module>ct-java-util</module>
+        <module>ct-archetype-web</module>
+        <module>ct-archetype-web</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -18,6 +21,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <mybatis.version>1.3.0</mybatis.version>
+        <mybatisplus.version>1.0.5</mybatisplus.version>
+        <version-alibaba>1.0.24</version-alibaba>
+        <maven.version>3.7.0</maven.version>
+        <plus.version>2.3</plus.version>
+        <engine.version>2.0</engine.version>
+        <thumbnailator.version>0.4.8</thumbnailator.version>
+        <hutool.version>4.0.9</hutool.version>
     </properties>
 
     <build>
@@ -52,5 +63,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>
