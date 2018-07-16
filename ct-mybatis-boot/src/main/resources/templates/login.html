@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/links :: common_header(~{::title},~{::link},~{})">
+    <title>用户登录</title>
+    <link th:href="@{/assets/css/luyat-login.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body class="login-bg">  
+    <div class="login">
+        <div class="message">用户登录</div>
+        <div id="darkbannerwrap"></div> 
+        <form method="post" class="layui-form" id="loginform">
+            <div class="form-group">
+                <input id="username" name="username" placeholder="用户名"  type="text" class="layui-input"/>
+            </div>
+            <hr class="hr15"/>
+            <div class="form-group">
+                <input id="password" name="password" placeholder="密码"  type="password" class="layui-input"/>
+            </div>
+            <hr class="hr15"/>
+            <button id="login" type="button">Submit</button>
+            <hr class="hr20"/>
+        </form>
+    </div>
+</body>
+<footer th:replace="common/links :: common_footer"></footer>
+<script src="/js/luyat-auths.js"></script>
+</html>
