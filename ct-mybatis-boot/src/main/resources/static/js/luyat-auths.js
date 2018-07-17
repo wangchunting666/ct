@@ -76,16 +76,15 @@
                 toastr.error("登录失败，请稍后重试...");  
             }else{  
                  $.ajax({  
-                	 url: "/login/login",
+                	 url: "/login/doLogin",
                 	 type: "post",  
                 	 data: {"username": username,"password": password},
                 	 dataType: "json",
                 	 success:function(result){
+                	 	console.log(result);
                 		 if(result.result == "failure"){
                 			 toastr.error("登录失败:"+result.text);
                 		 }else{
-                			 //console.log(result);
-                			 //toastr.success(result);
                 			 location.href="/home/index"
                 		 }
                 	 },

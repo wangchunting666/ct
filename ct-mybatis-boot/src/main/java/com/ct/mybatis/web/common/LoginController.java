@@ -1,6 +1,7 @@
 package com.ct.mybatis.web.common;
 
 import com.ct.mybatis.service.ISysLogService;
+import com.ct.mybatis.util.encrypt.RSAUtils;
 import com.ct.mybatis.vo.SysUser;
 import com.google.code.kaptcha.servlet.KaptchaExtend;
 import org.apache.shiro.SecurityUtils;
@@ -17,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * 登录控制器
@@ -43,9 +45,19 @@ public class LoginController extends SuperController{
 	 * 执行登录
 	 */
     @RequestMapping(value = "/doLogin",method=RequestMethod.POST)  
-    public String doLogin(String userName,String password, String captcha,String return_url,RedirectAttributesModelMap model){
+    public String doLogin(String userName,String password, RedirectAttributesModelMap model){
+		String usernameStr = RSAUtils.decryptBase64(userName);
+		String passwordStr = RSAUtils.decryptBase64(password);
+
+		//boolean vusername = RegexUtils.matchs(paramMap, "username", "^[a-zA-Z]\\w{5,17}$");
+		//boolean vpassword = RegexUtils.matchs(paramMap, "password", "^[a-zA-Z]\\w{5,17}$");
+//		if(!vusername || !vpassword) {
+//
+//		}
+
 		Subject currentUser = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
+
 
 		if (!currentUser.isAuthenticated()) {
 			// token.setRememberMe(true);
@@ -84,4 +96,19 @@ public class LoginController extends SuperController{
 		KaptchaExtend kaptchaExtend =  new KaptchaExtend();
 		kaptchaExtend.captcha(request, response);
     }
+
+	/**
+	 * 加密公钥
+	 * @param response
+	 */
+	@RequestMapping(value = "/rdsPwd",method = RequestMethod.POST)
+	public void rdsPwd(HttpServletResponse response) {
+		try {
+			PrintWriter writer = response.getWriter();
+			String publicKey = RSAUtils.generateBase64PublicKey();
+			writer.write(publicKey);
+		} catch (Exception e) {
+			logger.error("获取公钥数据失败",e);
+		}
+	}
 }
