@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/ct-mybatis-web" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/ct-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-character/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-design/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-ehcache/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-enum/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-io/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-mybatis-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-mybatis-web/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-nio/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-spring-client/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-spring-config/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-spring-rabbit/pom.xml" />
+        <option value="$PROJECT_DIR$/ct-supervene/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" default="true" />
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

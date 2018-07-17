@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(title,links,styles)">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:replace="${title}"></title>
+    <link th:href="@{/plugins/bootstrap/bootstrap.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/plugins/bootstrapFonts/font-awesome.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/plugins/bootstrapNprogress/nprogress.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/plugins/bootstrapProgressbar/bootstrap-progressbar-3.3.4.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/plugins/bootstrapValidator/css/bootstrapValidator.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/plugins/toastr/toastr.css}" rel="stylesheet" type="text/css"/>
+    <th:block th:replace="${links}"/>
+    <th:block th:replace="${styles}"/>
+</head>
+<footer th:fragment="common_footer">
+    <script th:src="@{/plugins/bootstrap/jquery.js}"></script>
+    <script th:src="@{/plugins/bootstrap/bootstrap.js}"></script>
+    <script th:src="@{/plugins/bootstrapFastclick/fastclick.js}"></script>
+    <script th:src="@{/plugins/bootstrapNprogress/nprogress.js}"></script>
+    <script th:src="@{/plugins/bootstrapProgressbar/bootstrap-progressbar.js}"></script>
+    <script th:src="@{/plugins/bootstrapValidator/js/bootstrapValidator.js}"></script>
+    <script th:src="@{/plugins/toastr/toastr.js}"></script>
+    <script th:src="@{/js/jsencrypt.min.js}"></script>
+</footer>

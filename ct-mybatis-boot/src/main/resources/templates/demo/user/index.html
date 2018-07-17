@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<title>用户管理</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="Pragma" content="no-cache" /> 
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="/plugs/bootstrap/bootstrap.css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapTables/bootstrap-table.css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapDatetimepicker/bootstrap-datetimepicker.css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapSelect/bootstrap-select.css"/>
+	<link rel="stylesheet" href="/plugs/webuploader-0.1.5/webuploader.css"/>
+	<link rel="stylesheet" href="/plugs/toastr/toastr.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="/plugs/bootstrapValidator/css/bootstrapValidator.css" type="text/css"/>
+</head>
+<body>
+<div id="toolbar">
+	<button shiro:hasPermission ="upms:user:create" type="button" class="btn btn-default add">新增</button>
+	<button shiro:hasPermission ="upms:user:update" type="button" class="btn btn-default upt">修改</button>
+	<button shiro:hasPermission ="upms:user:delete" type="button" class="btn btn-default del">删除</button>
+</div>
+<table id="table"></table>
+<!-- 新增 -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"></h4>
+			</div>
+			<div class="modal-body">
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary submit">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除 -->
+<div class="modal fade bs-example-modal-sm" id="confirm" tabindex="-1" role="dialog" aria-labelledby="myModalConfirm">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				确认删除？
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary delSubmit">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="/plugs/bootstrap/jquery.js"></script>
+<script src="/plugs/bootstrap/bootstrap.js"></script>
+<script src="/plugs/bootstrapTables/bootstrap-table.js"></script>
+<script src="/plugs/bootstrapTables/bootstrap-table-zh-CN.js"></script>
+<script src="/plugs/bootstrapDatetimepicker/bootstrap-datetimepicker.js"></script>
+<script src="/plugs/bootstrapSelect/bootstrap-select.js"></script>
+<script src="/plugs/webuploader-0.1.5/webuploader.js"></script>
+<script src="/plugs/toastr/toastr.js"></script>
+<script src="/plugs/bootstrapValidator/js/bootstrapValidator.js"></script>
+<script src="/js/luyat-common.js"></script>
+<script type="text/javascript">
+(function($){
+    $("#modal").on("shown.bs.modal",function(){
+        oTableInit.initUploader();
+    });
+	var oTableInit = new Object();
+    oTableInit.initUploader = function() {
+        var uploader = WebUploader.create({
+            swf: '/plugs/webuploader-0.1.5/Uploader.swf',
+            method: 'POST',
+            pick: {
+                "id": '#picker',
+                "multiple": false
+            },
+            resize: false,
+            auto: false,
+            formData:{
+                name:'face'
+            },
+            accept: {
+                title: '图片文件',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        });
+        uploader.on( 'fileQueued', function(file) {
+            console.log(file);
+            uploader.options.server = "/demo/user/upload";
+            uploader.options.formData.name = file.name;
+            uploader.upload();
+        });
+        uploader.on( 'uploadSuccess', function(file, response) {
+            if(response.code == 1){
+                $('#avatar').val(file.name);
+            }else{
+                toastr.error("文件上传错误");
+            }
+        });
+        uploader.on( 'uploadError', function(file) {
+            toastr.error("文件上传错误");
+        });
+    };
+	oTableInit.Init = function () {
+		$('#table').bootstrapTable({
+	        url: '/demo/user/data',         //请求后台的URL（*）
+	        method: 'POST',
+	        contentType:'application/x-www-form-urlencoded',
+	        queryParams:oTableInit.queryParams,
+	        height: getHeight(),
+			striped: true,
+			search: true,
+			showRefresh: true,
+			showColumns: false,
+			minimumCountColumns: 2,
+			clickToSelect: true,
+			detailView: false,
+			detailFormatter: 'detailFormatter',
+			pagination: true,
+			paginationLoop: false,
+			sidePagination: 'server',
+			silentSort: false,
+			smartDisplay: false,
+			escape: true,
+			searchOnEnterKey: true,
+			idField: 'user_id',
+			maintainSelected: true,
+            singleSelect:true,
+			toolbar: '#toolbar',
+	        columns: [
+                {field: 'ck', checkbox: true},
+                {field: 'user_id', visible:false},
+                {field: 'username', title: '帐号',edit:true,type:'text'},
+                {field: 'password', title: '密码',visible:false,edit:true,type:'password'},
+                {field: 'realname', title: '姓名',edit:true,type:'text'},
+                {field: 'avatar', title: '头像',edit:true,type:'file', align: 'center', formatter: function(value, row, index) {
+                    if (!value || value == null || value == '') {
+                        return value;
+                    } else {
+                        return '<img src="/demo/user/' + value + '" style="width:20px;height:20px;"/>';
+                    }
+                }},
+                {field: 'email', title: '邮箱',edit:true,type:'text'},
+                {field: 'phone', title: '手机',edit:true,type:'text'},
+                {field: 'locked',title: '状态',edit:true,type:'radio', sortable: true, align: 'center', formatter: function(value, row, index){
+                    if (value == 1) {
+                        return '<span class="label label-default role_status">锁定</span>';
+                    } else {
+                        return '<span class="label label-success role_status">正常</span>';
+                    }
+                }},
+                {field: 'roles', title: '角色',visible:false,edit:true,type:'select'}
+	        ]
+	    });
+	};
+	oTableInit.queryParams = function (params) {
+        var temp = {
+            limit: params.limit,
+            page: params.offset,
+            sord:params.order,
+            sidx:params.sort?params.sort:'updatedate',
+			search:params.search?params.search:''
+        };
+        return temp;
+    };
+    oTableInit.Init();
+
+    var methods = new Object();
+    methods.initEvent =function(){
+		$(".add").click(function(){
+		    $.create("新增");
+		    var radio = "<label class=\"radio-inline\">"+
+            			"<input type=\"radio\" name=\"locked\" value=\"100\" checked>正常"+
+                		"</label>"+
+                		"<label class=\"radio-inline\">"+
+                		"<input type=\"radio\" name=\"locked\" value=\"200\">锁定"+
+                		"</label>";
+		    $("#locked").parent().html(radio);
+
+			var inputGroup = "<div class=\"input-group\">"+
+						     "<div>"+
+							 "<input id=\"avatar\" disabled type=\"text\" class=\"form-control\" placeholder=\"文件名称\">"+
+							 "</div>"+
+				             "<div class=\"input-group-btn\">"+
+								"<button id=\"picker\" class=\"btn btn-default\" type=\"button\">文件上传</button>"+
+							 "</div>"+
+							 "</div>";
+            $("#avatar").parent().html(inputGroup);
+
+            $.dropdown("/demo/dict/role",{},"#roles");
+            $("#roles").attr("multiple",true);
+            $("#roles").selectpicker({liveSearch:true});
+            $("#roles").selectpicker('val', '');
+
+            $(".submit").unbind("click");
+            $(".submit").click(function(){methods.createData();});
+
+            methods.createValidate();
+		});
+        $(".upt").click(function(){
+            var rows = $('#table').bootstrapTable('getSelections');
+            if(rows == null || rows.length != 1){
+                toastr.warning("请选择一条数据!");
+                return false;
+			}
+            $.create("修改");
+            var radio = "<label class=\"radio-inline\">"+
+                "<input type=\"radio\" name=\"locked\" value=\"100\" checked>正常"+
+                "</label>"+
+                "<label class=\"radio-inline\">"+
+                "<input type=\"radio\" name=\"locked\" value=\"200\">锁定"+
+                "</label>";
+            $("#locked").parent().html(radio);
+
+            var inputGroup = "<div class=\"input-group\">"+
+                "<div>"+
+                "<input id=\"avatar\" disabled type=\"text\" class=\"form-control\" placeholder=\"文件名称\">"+
+                "</div>"+
+                "<div class=\"input-group-btn\">"+
+                "<button id=\"picker\" class=\"btn btn-default\" type=\"button\">文件上传</button>"+
+                "</div>"+
+                "</div>";
+            $("#avatar").parent().html(inputGroup);
+
+            $("#username").val(rows[0].username);
+            $("#username").attr("disabled",true);
+            $("#password").parent().parent().remove();
+            $("#realname").val(rows[0].realname);
+            $("#avatar").val(rows[0].avatar);
+            $("#phone").val(rows[0].phone);
+            $("#email").val(rows[0].email);
+            $("input[value='"+rows[0].locked+"']").attr("checked",true);
+			console.log(rows[0].roles);
+            $.dropdown("/demo/dict/role",{},"#roles");
+            $("#roles").attr("multiple",true);
+            $("#roles").selectpicker({liveSearch:true});
+            if(rows[0].roles && rows[0].roles != null && rows[0].roles.length != 0){
+            	$("#roles").selectpicker('val', rows[0].roles.split(","));
+            }else {
+                $("#roles").selectpicker('val', '');
+			}
+
+            $(".submit").unbind("click");
+            $(".submit").click(function(){methods.updateData();});
+
+            methods.updateValidate();
+
+        });
+
+        $(".del").click(function(){
+            var rows = $('#table').bootstrapTable('getSelections');
+            if(rows == null || rows.length != 1){
+                toastr.warning("请选择一条数据!");
+                return false;
+            }
+            $("#confirm").modal("show");
+            $(".delSubmit").unbind("click");
+            $(".delSubmit").click(function(){methods.deleteData();});
+		});
+	};
+
+    methods.createValidate = function(){
+        $("#tableForm").bootstrapValidator({
+            message: "This value is not valid",
+            feedbackIcons: {valid: "glyphicon glyphicon-ok",invalid: "glyphicon glyphicon-remove",validating: "glyphicon glyphicon-refresh"},
+            fields: {
+                username:{
+                    validators:{
+                        notEmpty: {message: '数据不能为空'},
+                        regexp: {
+                            regexp: /^[a-zA-Z]\w{5,17}$/,
+                            message: '以字母开头,长度在6~18之间,只能包含字符、数字和下划线'
+                        }
+                    }
+                },
+                password:{
+                    validators:{
+                        notEmpty: {message: '数据不能为空'},
+                        regexp: {
+                            regexp: /^[a-zA-Z]\w{5,17}$/,
+                            message: '以字母开头,长度在6~18之间,只能包含字符、数字和下划线'
+                        }
+                    }
+                },
+                phone:{
+                    validators:{
+                        regexp: {
+                            regexp: /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
+                            message: '手机格式不正确'
+                        }
+                    }
+                },
+                email:{
+                    validators:{
+                        regexp: {
+                            regexp: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+                            message: '邮箱格式不正确'
+                        }
+                    }
+                }
+            }
+        });
+	};
+
+    methods.updateValidate = function(){
+        $("#tableForm").bootstrapValidator({
+            message: "This value is not valid",
+            feedbackIcons: {valid: "glyphicon glyphicon-ok",invalid: "glyphicon glyphicon-remove",validating: "glyphicon glyphicon-refresh"},
+            fields: {
+                phone:{
+                    validators:{
+                        regexp: {
+                            regexp: /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
+                            message: '手机格式不正确'
+                        }
+                    }
+                },
+                email:{
+                    validators:{
+                        regexp: {
+                            regexp: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+                            message: '邮箱格式不正确'
+                        }
+                    }
+                }
+            }
+        });
+    };
+
+	methods.createData = function(){
+        var validate = $("#tableForm").bootstrapValidator("validate");
+        var flag = $("#tableForm").data("bootstrapValidator").isValid();
+        if(!flag){return false;}
+
+        $.ajax({
+            url: "/demo/user/create",
+            type: "post",
+            data: {
+                "username": $("#username").val(),
+				"password": $("#password").val(),
+				"realname": $("#realname").val(),
+                "avatar": $("#avatar").val(),
+                "phone": $("#phone").val(),
+                "email": $("#email").val(),
+                "locked":$("input[type='radio']:checked").val(),
+                "roles":$("#roles").selectpicker('val') == null?'':$("#roles").selectpicker('val').join(",")
+            },
+            dataType: "json",
+            success:function(result){
+                if(result.result == "failure"){
+                    toastr.error("新增失败!");
+                }else{
+                    toastr.success("新增成功!");
+                    $("#modal").modal("hide");
+                    $("#table").bootstrapTable("refresh");
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                toastr.error(textStatus);
+            }
+        });
+    };
+
+    methods.updateData = function(){
+        var validate = $("#tableForm").bootstrapValidator("validate");
+        var flag = $("#tableForm").data("bootstrapValidator").isValid();
+        if(!flag){return false;}
+        var rows = $('#table').bootstrapTable('getSelections');
+        $.ajax({
+            url: "/demo/user/update",
+            type: "post",
+            data: {
+                "realname": $("#realname").val(),
+                "avatar": $("#avatar").val(),
+                "phone": $("#phone").val(),
+                "email": $("#email").val(),
+                "locked":$("input[type='radio']:checked").val(),
+				"user_id":rows[0].user_id,
+				"roles":$("#roles").selectpicker('val') == null?'':$("#roles").selectpicker('val').join(",")
+            },
+            dataType: "json",
+            success:function(result){
+                if(result.result == "failure"){
+                    toastr.error("修改失败!");
+                }else{
+                    toastr.success("修改成功!");
+                    $("#modal").modal("hide");
+                    $("#table").bootstrapTable("refresh");
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                toastr.error(textStatus);
+            }
+        });
+    };
+
+    methods.deleteData = function(){
+        var rows = $('#table').bootstrapTable('getSelections');
+        $.ajax({
+            url: "/demo/user/delete",
+            type: "post",
+            data: {"user_id": rows[0].user_id},
+            dataType: "json",
+            success:function(result){
+                if(result.result == "failure"){
+                    toastr.error("删除失败!");
+                }else{
+                    toastr.success("删除成功!");
+                    $("#confirm").modal("hide");
+                    $("#table").bootstrapTable("refresh");
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                toastr.error(textStatus);
+            }
+        });
+    };
+    methods.initEvent();
+})(jQuery);
+</script>
+</html>

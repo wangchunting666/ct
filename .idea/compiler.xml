@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ct-designPattern" />
+        <module name="ct-generator" />
+        <module name="ct-innerclass" />
+        <module name="ct-mybatis-boot" />
+        <module name="ct-mybatis-plus" />
+        <module name="ct-spring-base" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ct" target="1.8" />
+      <module name="ct-annotation" target="1.8" />
+      <module name="ct-arithmetic" target="1.8" />
+      <module name="ct-chapter18" target="1.8" />
+      <module name="ct-character" target="1.8" />
+      <module name="ct-design" target="1.8" />
+      <module name="ct-designPattern" target="1.8" />
+      <module name="ct-ehcache" target="1.8" />
+      <module name="ct-enum" target="1.8" />
+      <module name="ct-generator" target="1.8" />
+      <module name="ct-innerclass" target="1.8" />
+      <module name="ct-io" target="1.8" />
+      <module name="ct-mybatis-boot" target="1.8" />
+      <module name="ct-mybatis-generator" target="1.8" />
+      <module name="ct-mybatis-plus" target="1.8" />
+      <module name="ct-mybatis-web" target="1.8" />
+      <module name="ct-nio" target="1.8" />
+      <module name="ct-redis" target="1.8" />
+      <module name="ct-spring-base" target="1.8" />
+      <module name="ct-spring-client" target="1.8" />
+      <module name="ct-spring-config" target="1.8" />
+      <module name="ct-spring-rabbit" target="1.8" />
+      <module name="ct-supervene" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
